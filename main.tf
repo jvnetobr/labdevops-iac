@@ -17,7 +17,10 @@ resource "aws_instance" "app_server" {
   ami           = "ami-008fe2fc65df48dac"
   instance_type = "t2.micro"
   key_name = "iac-alura"
-
+  user_data = <<-EOF
+                  #!/bin/bash
+                        cd /home/ubuntu
+                  EOF
   tags = {
     Name = "Primeira instancia"
   }
